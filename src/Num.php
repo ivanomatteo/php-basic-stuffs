@@ -4,7 +4,7 @@ namespace IvanoMatteo\PhpBasicStuffs;
 
 class Num
 {
-    static function parseInt($v, $accept_float = false, $accept_exp = false, $throw = true)
+    public static function parseInt($v, $accept_float = false, $accept_exp = false, $throw = true)
     {
         $n = null;
         if (is_numeric($v)) {
@@ -35,7 +35,7 @@ class Num
         return  $n;
     }
 
-    static function parseFloat($v, $accept_exp = true,  $throw = true)
+    public static function parseFloat($v, $accept_exp = true,  $throw = true)
     {
         $n = null;
         if (is_numeric($v)) {

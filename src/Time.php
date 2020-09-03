@@ -2,7 +2,7 @@
 
 class Time
 {
-    function cronometer($func, $repeat = 1)
+    static function cronometer($func, $repeat = 1)
     {
         $time_start = microtime(true);
         for ($i = 0; $i < $repeat; $i++) {
