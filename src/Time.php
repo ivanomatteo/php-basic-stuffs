@@ -1,5 +1,5 @@
 <?php
-
+namespace IvanoMatteo\PhpBasicStuffs;
 class Time
 {
     static function cronometer($func, $repeat = 1)
