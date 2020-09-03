@@ -27,6 +27,10 @@ class Num
                         $n = null;
                     }
                 }
+            }else if(is_float($v)){
+                if($v > PHP_INT_MAX || $v < PHP_INT_MIN){
+                    $n = null;
+                }
             }
         }
         if ($throw && $n === null) {
