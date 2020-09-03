@@ -23,7 +23,8 @@
     },
     "autoload": {
         "psr-4": {
-            "IvanoMatteo\\PhpBasicStuffs\\": "src"
+            "IvanoMatteo\\PhpBasicStuffs\\": "src",
+            "": "src/helpers"
         }
     },
     "autoload-dev": {
