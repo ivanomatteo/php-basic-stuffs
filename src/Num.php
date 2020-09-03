@@ -4,7 +4,32 @@ namespace IvanoMatteo\PhpBasicStuffs;
 
 class Num
 {
-    public static function parseInt($v, $accept_float = false, $accept_exp = false, $throw = true)
+    private static function throwException($var, $result) {
+        
+        if ($result === null) {
+            throw new \Exception('Invalid Number Format: ' . $var);
+        } else {
+            return $result;
+        }
+    }
+
+    public static function parseNum($var, $accept_float = false, $accept_exp = false, $throw = true) {
+        
+        $toR = (
+            $accept_float
+            ? self::parseFloat($var, $accept_exp)
+            : self::parseInt ($var)
+        );
+
+        return (
+            $throw
+            ? self::throwException($var, $toR)
+            : $toR
+        );
+    }
+
+
+    private static function parseInt($v, $accept_float = false, $accept_exp = false)
     {
         $n = null;
         if (is_numeric($v)) {
@@ -33,13 +58,11 @@ class Num
                 }
             }
         }
-        if ($throw && $n === null) {
-            throw new \Exception('Invalid Number Format: ' . $v);
-        }
+
         return  $n;
     }
 
-    public static function parseFloat($v, $accept_exp = true,  $throw = true)
+    private static function parseFloat($v, $accept_exp = true)
     {
         $n = null;
         if (is_numeric($v)) {
@@ -53,9 +76,7 @@ class Num
                 return null;
             }
         }
-        if ($throw && $n === null) {
-            throw new \Exception('Invalid Number Format: ' . $v);
-        }
+
         return  $n;
     }
 }
