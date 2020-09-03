@@ -17,7 +17,7 @@ class Num
         
         $toR = (
             $accept_float
-            ? self::parseFloat($var, $accept_exp)
+            ? self::parseFloat($var, false, $accept_exp)
             : self::parseInt ($var)
         );
 
