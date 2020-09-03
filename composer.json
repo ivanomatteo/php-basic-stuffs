@@ -1,0 +1,42 @@
+{
+    "name": "ivanomatteo/php-basic-stuffs",
+    "description": "basic php library to provide a better programming experience with php",
+    "keywords": [
+        "ivanomatteo",
+        "php-basic-stuffs"
+    ],
+    "homepage": "https://github.com/ivanomatteo/php-basic-stuffs",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ivano Matteo",
+            "email": "ivanomatteo@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IvanoMatteo\\PhpBasicStuffs\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IvanoMatteo\\PhpBasicStuffs\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
