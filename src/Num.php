@@ -48,7 +48,7 @@ class Num
                 }
             } else if (is_float($v)) {
                 if ($accept_float) {
-                    if ($v > PHP_INT_MAX || $v < PHP_INT_MIN) {
+                    if ($v > PHP_INT_MAX || $v < PHP_INT_MIN || $n === INF || $n === -INF || $n === NAN) {
                         $n = null;
                     }
                 } else {
