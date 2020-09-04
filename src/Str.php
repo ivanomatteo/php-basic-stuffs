@@ -39,5 +39,4 @@ class Str
 
         return false;
     }
-    
 }

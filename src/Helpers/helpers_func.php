@@ -3,8 +3,8 @@
 use IvanoMatteo\PhpBasicStuffs\Num;
 use IvanoMatteo\PhpBasicStuffs\Str;
 use IvanoMatteo\PhpBasicStuffs\Time;
-use function IvanoMatteo\PhpBasicStuffs\Helpers\function_not_exists;
 
+use function IvanoMatteo\PhpBasicStuffs\Helpers\function_not_exists;
 
 if (function_not_exists('dd')) {
     function dd($v)
@@ -61,8 +61,8 @@ if (function_not_exists('parseInt')) {
 }
 
 if (function_not_exists('parseFloat')) {
-    function parseFloat($v, $accept_exp = true,  $throw = true)
+    function parseFloat($v, $accept_exp = true, $throw = true)
     {
-        return Num::parseFloat($v, $accept_exp,  $throw);
+        return Num::parseFloat($v, $accept_exp, $throw);
     }
 }

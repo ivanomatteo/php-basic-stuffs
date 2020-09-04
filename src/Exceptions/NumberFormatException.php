@@ -2,6 +2,7 @@
 
 namespace IvanoMatteo\PhpBasicStuffs\Exceptions;
 
-class NumberFormatException extends \Exception{
+class NumberFormatException extends \Exception
+{
 
 }

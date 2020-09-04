@@ -29,7 +29,7 @@ class Num
 
         if (is_int($v)) {
             return $v;
-        } else if (is_float($v)) {
+        } elseif (is_float($v)) {
             if ($accept_float) {
                 if ($v > PHP_INT_MAX || $v < PHP_INT_MIN || $n === INF || $n === -INF || $n === NAN) {
                     $n = null;
@@ -39,11 +39,11 @@ class Num
             } else {
                 $n = null;
             }
-        } else if (is_numeric($v)) { //  (!is_int() && !is_float() && is_numeric()) means also that is a string
+        } elseif (is_numeric($v)) { //  (!is_int() && !is_float() && is_numeric()) means also that is a string
             $v = trim($v);
             if (!$accept_float && preg_match('/[.]/', $v)) {
                 $n = null;
-            } else if (!$accept_exp && preg_match('/[eE]/', $v)) {
+            } elseif (!$accept_exp && preg_match('/[eE]/', $v)) {
                 $n = null;
             } else {
                 $n = intval($v);
@@ -51,9 +51,9 @@ class Num
                     // piccolo trick, con stringhe numeriche molto grandi intval() restituisce 0
                     // però $stringaNumerica == 0 --> false
                     $n = null;
-                } else if ($n === PHP_INT_MAX && $v !== ('' . PHP_INT_MAX)) {
+                } elseif ($n === PHP_INT_MAX && $v !== ('' . PHP_INT_MAX)) {
                     $n = null;
-                } else if ($n === PHP_INT_MIN && $v !== ('' . PHP_INT_MIN)) {
+                } elseif ($n === PHP_INT_MIN && $v !== ('' . PHP_INT_MIN)) {
                     $n = null;
                 }
             }

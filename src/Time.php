@@ -6,7 +6,7 @@ use IvanoMatteo\PhpBasicStuffs\Exceptions\DateTimeFormatException;
 
 class Time
 {
-    static function cronometer($func, $repeat = 1)
+    public static function cronometer($func, $repeat = 1)
     {
         $time_start = microtime(true);
         for ($i = 0; $i < $repeat; $i++) {
@@ -16,7 +16,7 @@ class Time
         return $time_end - $time_start;
     }
 
-    static function dateTimeStr($timeStr = null, $format = null)
+    public static function dateTimeStr($timeStr = null, $format = null)
     {
 
         $ts = $timeStr ? strtotime($timeStr) : time();
@@ -25,7 +25,7 @@ class Time
         }
         return date($format ?? 'Y-m-d H:i:s', $ts);
     }
-    static function timeStr($timeStr = null, $format = null)
+    public static function timeStr($timeStr = null, $format = null)
     {
         return static::dateTimeStr($timeStr, $format ?? 'H:i:s');
     }

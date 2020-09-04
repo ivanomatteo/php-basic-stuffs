@@ -2,6 +2,7 @@
 
 namespace IvanoMatteo\PhpBasicStuffs\Exceptions;
 
-class DateTimeFormatException extends \Exception{
+class DateTimeFormatException extends \Exception
+{
 
 }

@@ -11,6 +11,6 @@ class ExampleTest extends TestCase
     public function helpers()
     {
         Helpers::load();
-        $this->assertTrue(startsWith('pippo','pi'));
+        $this->assertTrue(startsWith('pippo', 'pi'));
     }
 }

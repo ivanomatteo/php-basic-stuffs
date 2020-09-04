@@ -4,6 +4,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
+  - 7.4
 
 env:
   matrix:
@@ -15,6 +16,7 @@ before_script:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
 
 script:
+  - vendor/bin/phpcs -p --standard=PSR12 ./src ./tests 
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
