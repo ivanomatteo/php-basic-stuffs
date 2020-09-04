@@ -69,7 +69,7 @@ class Num
             $n = floatval($v);
             if (is_string($v)) {
                 if (!$accept_exp && preg_match('/[eE]/', $v)) {
-                    $n === null;
+                    $n = null;
                 }
             }
             if ($n === INF || $n === -INF || $n === NAN) {
