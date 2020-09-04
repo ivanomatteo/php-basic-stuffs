@@ -2,34 +2,28 @@
 
 namespace IvanoMatteo\PhpBasicStuffs;
 
+use IvanoMatteo\PhpBasicStuffs\Exceptions\NumberFormatException;
+
 class Num
 {
-    private static function throwException($var, $result) {
-        
-        if ($result === null) {
-            throw new \Exception('Invalid Number Format: ' . $var);
+    private static function notNull($original, $parsed)
+    {
+        if ($parsed === null) {
+            throw new NumberFormatException('Invalid Number Format: ' . $original);
         } else {
-            return $result;
+            return $parsed;
         }
     }
 
-    public static function parseNum($var, $accept_float = false, $accept_exp = false, $throw = true) {
-        
-        $toR = (
-            $accept_float
-            ? self::parseFloat($var, false, $accept_exp)
-            : self::parseInt ($var)
-        );
-
-        return (
-            $throw
-            ? self::throwException($var, $toR)
-            : $toR
-        );
+    public static function parseNum($var, $accept_float = false, $accept_exp = false, $throwOnNull = true)
+    {
+        return ($accept_float
+            ? static::parseFloat($var, $accept_exp, $accept_exp, $throwOnNull)
+            : static::parseInt($var, false, $accept_exp, $throwOnNull));
     }
 
 
-    private static function parseInt($v, $accept_float = false, $accept_exp = false)
+    public static function parseInt($v, $accept_float = false, $accept_exp = false, $throwOnNull = true)
     {
         $n = null;
         if (is_numeric($v)) {
@@ -52,17 +46,21 @@ class Num
                         $n = null;
                     }
                 }
-            }else if(is_float($v)){
-                if($v > PHP_INT_MAX || $v < PHP_INT_MIN){
+            } else if (is_float($v)) {
+                if ($accept_float) {
+                    if ($v > PHP_INT_MAX || $v < PHP_INT_MIN) {
+                        $n = null;
+                    }
+                } else {
                     $n = null;
                 }
             }
         }
 
-        return  $n;
+        return  $throwOnNull ? static::notNull($v, $n) : $n;
     }
 
-    private static function parseFloat($v, $accept_exp = true)
+    public static function parseFloat($v, $accept_exp = true, $throwOnNull = true)
     {
         $n = null;
         if (is_numeric($v)) {
@@ -77,6 +75,6 @@ class Num
             }
         }
 
-        return  $n;
+        return  $throwOnNull ? static::notNull($v, $n) : $n;
     }
 }

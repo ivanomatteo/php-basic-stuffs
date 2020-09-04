@@ -2,13 +2,15 @@
 
 namespace IvanoMatteo\PhpBasicStuffs\Tests;
 
+use IvanoMatteo\PhpBasicStuffs\Helpers\Helpers;
 use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
     /** @test */
-    public function true_is_true()
+    public function helpers()
     {
-        $this->assertTrue(true);
+        Helpers::load();
+        $this->assertTrue(startsWith('pippo','pi'));
     }
 }
