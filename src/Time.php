@@ -16,16 +16,17 @@ class Time
         return $time_end - $time_start;
     }
 
-    static function dateTimeStr($timeStr = null, $format = 'Y-m-d H:i:s')
+    static function dateTimeStr($timeStr = null, $format = null)
     {
+
         $ts = $timeStr ? strtotime($timeStr) : time();
         if ($ts === false) {
             throw new DateTimeFormatException("Wrong Format: " . $timeStr);
         }
-        return date($format, $ts);
+        return date($format ?? 'Y-m-d H:i:s', $ts);
     }
-    static function timeStr($timeStr = null, $format = 'H:i:s')
+    static function timeStr($timeStr = null, $format = null)
     {
-        return static::dateTimeStr($timeStr, $format);
+        return static::dateTimeStr($timeStr, $format ?? 'H:i:s');
     }
 }

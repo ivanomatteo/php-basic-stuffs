@@ -33,6 +33,18 @@ if (function_not_exists('cronometer')) {
         return Time::cronometer($func, $repeat);
     }
 }
+if (function_not_exists('dateTimeStr')) {
+    function dateTimeStr($timeStr = null, $format = null)
+    {
+        return Time::dateTimeStr($timeStr, $format);
+    }
+}
+if (function_not_exists('timeStr')) {
+    function timeStr($timeStr = null, $format = null)
+    {
+        return Time::timeStr($timeStr, $format);
+    }
+}
 
 if (function_not_exists('parseNum')) {
     function parseNum($v, $accept_float = false, $accept_exp = false, $throw = true)
