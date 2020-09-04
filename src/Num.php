@@ -39,16 +39,14 @@ class Num
             } else {
                 $n = null;
             }
-        } else if (is_numeric($v)) {
-            $n = intval($v);
-
+        } else if (is_numeric($v)) { //  (!is_int() && !is_float() && is_numeric()) means also that is a string
+            $v = trim($v);
             if (!$accept_float && preg_match('/[.]/', $v)) {
-                $n === null;
+                $n = null;
             } else if (!$accept_exp && preg_match('/[eE]/', $v)) {
-                $n === null;
+                $n = null;
             } else {
-                $v = trim($v);
-
+                $n = intval($v);
                 if ($n === 0 && $v != 0) {
                     // piccolo trick, con stringhe numeriche molto grandi intval() restituisce 0
                     // però $stringaNumerica == 0 --> false
